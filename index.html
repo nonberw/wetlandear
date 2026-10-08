@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en" class="i18n-pending">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WetlandEar: acoustic monitoring for nature reserves</title>
+<meta name="description" content="WetlandEar is an open acoustic monitoring system for nature reserves in Kazakhstan. Solar stations recognize birds on the device and rangers see everything on one map.">
+<meta name="theme-color" content="#F7F9FD">
+<meta property="og:title" content="WetlandEar: hear every reserve">
+<meta property="og:description" content="Open acoustic monitoring for Kazakhstan's nature reserves. First site: Korgalzhyn.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wetlandear.tech/">
+<link rel="canonical" href="https://wetlandear.tech/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  /* Hide the page for a moment so the chosen language never flashes. Safety timeout included. */
+  (function(){var d=document.documentElement;setTimeout(function(){d.classList.remove('i18n-pending')},1500);})();
+</script>
+<noscript><style>.i18n-pending body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}.hero-h1 .line>span{transform:none!important}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<div class="progress" aria-hidden="true"><i id="progBar"></i></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="#top" aria-label="WetlandEar">
+      <span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="logo-word">WetlandEar</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how" data-i18n="nav_how">How it works</a>
+      <a href="#product" data-i18n="nav_product">Platform</a>
+      <a href="#parts" data-i18n="nav_parts">Components</a>
+      <a href="#pilot" data-i18n="nav_pilot">Pilot site</a>
+    </nav>
+    <div class="nav-end">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      </div>
+      <a class="btn btn-primary btn-sm" href="#join" data-i18n="cta">Join the pilot</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="aura" aria-hidden="true"><i></i><i></i><i></i></div>
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-in">
+      <h1 class="hero-h1">
+        <span class="line"><span data-i18n="hero_h1_a">Hear every</span></span>
+        <span class="line"><span data-i18n="hero_h1_b">reserve.</span></span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">An open acoustic monitoring system. Solar stations listen to birds, rangers see everything on one map.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg mag" href="#join" data-i18n="cta">Join the pilot</a>
+        <a class="btn btn-ghost btn-lg" href="#how" data-i18n="hero_cta2">How it works</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem" id="problem">
+    <div class="wrap">
+      <p class="statement" id="statement" data-i18n="prob_statement">Reserves are vast. People in the field are few. Birds do not wait for the next survey.</p>
+      <div class="prob-grid">
+        <div class="prob-item reveal" style="--i:0">
+          <h3 data-i18n="prob_1_t">At night</h3>
+          <p data-i18n="prob_1_p">Many birds fly and call after dark, when nobody is there to hear.</p>
+        </div>
+        <div class="prob-item reveal" style="--i:1">
+          <h3 data-i18n="prob_2_t">In migration season</h3>
+          <p data-i18n="prob_2_p">Waves of birds pass in days. Rare visits miss them.</p>
+        </div>
+        <div class="prob-item reveal" style="--i:2">
+          <h3 data-i18n="prob_3_t">Far from people</h3>
+          <p data-i18n="prob_3_p">A huge territory and few people in the field.</p>
+        </div>
+      </div>
+      <p class="prob-close reveal" data-i18n="prob_close">A microphone listens around the clock. And it is cheap.</p>
+    </div>
+  </section>
+
+  <section class="mani" id="mani">
+    <div class="mani-pin" id="maniPin">
+      <div class="mani-words">
+        <p class="mw on" data-i="0" data-i18n="mani_1">It listens.</p>
+        <p class="mw" data-i="1" data-i18n="mani_2">It understands.</p>
+        <p class="mw" data-i="2" data-i18n="mani_3">It tells you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="how-pin" id="howPin">
+      <div class="wrap how-grid">
+        <div class="how-copy">
+          <p class="eyebrow" data-i18n="how_eyebrow">How it works</p>
+          <h2 data-i18n="how_h2">Only the event leaves the device.</h2>
+          <ol class="steps" id="steps">
+            <li class="step on" data-step="0"><button type="button" data-i18n="s1_t">Listen</button></li>
+            <li class="step" data-step="1"><button type="button" data-i18n="s2_t">Understand</button></li>
+            <li class="step" data-step="2"><button type="button" data-i18n="s3_t">Send</button></li>
+            <li class="step" data-step="3"><button type="button" data-i18n="s4_t">Collect</button></li>
+            <li class="step" data-step="4"><button type="button" data-i18n="s5_t">Show</button></li>
+          </ol>
+          <div class="descs" id="descs">
+            <p class="desc on" data-step="0" data-i18n="s1_p">A MEMS microphone on a solar-powered ESP32-S3 station records day and night.</p>
+            <p class="desc" data-step="1" data-i18n="s2_p">A small model names the species on the device itself. The raw audio stays there.</p>
+            <p class="desc" data-step="2" data-i18n="s3_p">LoRa carries the species, the time and the confidence. A tiny message, not a recording.</p>
+            <p class="desc" data-step="3" data-i18n="s4_p">A gateway in the reserve office receives the events. No internet needed.</p>
+            <p class="desc" data-step="4" data-i18n="s5_p">Rangers get an event feed, a map of stations and Telegram alerts.</p>
+          </div>
+        </div>
+        <div class="how-stage">
+          <canvas id="stage" aria-label="Animated diagram of the signal path from microphone to dashboard" role="img"></canvas>
+          <div class="how-bar" aria-hidden="true"><i id="howBar"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product" id="product">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 data-i18n="prod_h2">Two parts. One system.</h2>
+        <p class="lead" data-i18n="prod_sub">A station in the field and a platform in the office.</p>
+      </div>
+      <div class="bento">
+        <article class="b b-node reveal" style="--i:0">
+          <span class="badge badge-on" data-i18n="node_badge">Prototype</span>
+          <h3 data-i18n="node_t">Station</h3>
+          <p data-i18n="node_p">A low-cost, solar-powered listening device. It runs the species model itself and sends only events.</p>
+          <ul class="specs">
+            <li data-i18n="node_li1">ESP32-S3 with an I2S MEMS microphone</li>
+            <li data-i18n="node_li2">LoRa radio for remote terrain</li>
+            <li data-i18n="node_li3">Solar panel and battery</li>
+            <li data-i18n="node_li4">On-device species model</li>
+          </ul>
+          <div class="device" aria-hidden="true">
+            <span class="d-antenna"></span>
+            <span class="d-panel"></span>
+            <span class="d-body"><span class="d-mic"></span><span class="d-led"></span><span class="d-label">WetlandEar</span></span>
+            <span class="d-stand"></span>
+          </div>
+        </article>
+        <article class="b b-plat reveal" style="--i:1">
+          <span class="badge" data-i18n="plat_badge">In design</span>
+          <h3 data-i18n="plat_t">Platform</h3>
+          <p data-i18n="plat_p">One screen for the whole reserve. Works offline with a local gateway.</p>
+          <div class="ptabs" role="tablist">
+            <button type="button" role="tab" class="on" aria-selected="true" data-pv="0" data-i18n="pt_feed">Feed</button>
+            <button type="button" role="tab" aria-selected="false" data-pv="1" data-i18n="pt_map">Map</button>
+            <button type="button" role="tab" aria-selected="false" data-pv="2" data-i18n="pt_alert">Alerts</button>
+            <button type="button" role="tab" aria-selected="false" data-pv="3" data-i18n="pt_export">Export</button>
+          </div>
+          <div class="pview" id="pview">
+            <div class="pv on" data-pv="0">
+              <div class="pr" style="--n:0"><span class="pk"></span><b data-i18n="ev_flamingo">Flamingo</b><em>05:42</em><i data-i18n="c_high">high</i></div>
+              <div class="pr" style="--n:1"><span class="pk"></span><b data-i18n="ev_crane">Demoiselle crane</b><em>06:10</em><i data-i18n="c_medium">medium</i></div>
+              <div class="pr" style="--n:2"><span class="pk"></span><b data-i18n="ev_lapwing">Lapwing</b><em>06:31</em><i data-i18n="c_high">high</i></div>
+            </div>
+            <div class="pv" data-pv="1">
+              <div class="pmap"><span class="lk a"></span><span class="lk b"></span><span class="pd d1"></span><span class="pd d2"></span><span class="pd d3"></span></div>
+            </div>
+            <div class="pv" data-pv="2">
+              <div class="tg" style="--n:0"><small>Telegram</small><b data-i18n="ev_gunshot">Possible gunshot</b><span data-i18n="st_3">Station 3</span></div>
+              <div class="tg tg2" style="--n:1"><small>Telegram</small><b data-i18n="ev_engine">Engine noise</b><span data-i18n="st_3">Station 3</span></div>
+            </div>
+            <div class="pv" data-pv="3">
+              <div class="pf" style="--n:0"><b>CSV</b><i><u></u></i></div>
+              <div class="pf" style="--n:1"><b>Darwin Core</b><i><u></u></i></div>
+              <div class="pg" style="--n:2">GBIF</div>
+            </div>
+            <span class="pbar" id="pbar"><i id="pbarFill"></i></span>
+          </div>
+          <p class="pcap" id="pcap" data-i18n="plat_li1">Event feed with an audio clip to verify</p>
+        </article>
+        <article class="b b-open reveal" style="--i:2">
+          <span class="badge" data-i18n="open_badge">Planned</span>
+          <h3 data-i18n="open_t">Open by design</h3>
+          <p data-i18n="open_p">Data and code will be published, so any reserve can repeat the setup.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo" id="demo">
+    <div class="demo-shell" id="demoShell">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 data-i18n="demo_h2">See what rangers see.</h2>
+          <p class="lead" data-i18n="demo_sub">A live preview with demo data. Real events will look like this.</p>
+        </div>
+        <div class="app" role="region" aria-label="Interface preview">
+          <div class="app-top">
+            <div class="chips" role="group" aria-label="Filter">
+              <button type="button" class="on" data-f="all" data-i18n="f_all">All</button>
+              <button type="button" data-f="bird" data-i18n="f_birds">Birds</button>
+              <button type="button" data-f="threat" data-i18n="f_threats">Threats</button>
+            </div>
+            <div class="app-tools">
+              <span class="badge badge-demo" data-i18n="demo_badge">Demo data</span>
+              <button type="button" class="btn-tool" id="demoToggle" data-i18n="demo_pause">Pause</button>
+            </div>
+          </div>
+          <div class="app-body">
+            <div class="feed">
+              <h3 data-i18n="demo_feed">Event feed</h3>
+              <ul id="feed" data-f="all"></ul>
+              <p class="empty" id="feedEmpty" data-i18n="demo_empty" hidden>Listening...</p>
+            </div>
+            <div class="map">
+              <h3 data-i18n="demo_map">Stations</h3>
+              <div class="map-box" id="mapBox">
+                <span class="lake l1"></span><span class="lake l2"></span><span class="lake l3"></span>
+                <button type="button" class="st s1" data-st="0"><span class="pin"></span><span class="st-l"><span data-i18n="st_1">Station 1</span> <em data-i18n="st_pilot">pilot</em></span></button>
+                <button type="button" class="st s2" data-st="1"><span class="pin"></span><span class="st-l" data-i18n="st_2">Station 2</span></button>
+                <button type="button" class="st s3" data-st="2"><span class="pin"></span><span class="st-l" data-i18n="st_3">Station 3</span></button>
+                <div class="toast" id="toast" role="status"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="parts" id="parts">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="parts_eyebrow">Architecture</p>
+        <h2 data-i18n="parts_h2">Five parts, one database.</h2>
+        <p class="lead" data-i18n="parts_sub">Four sources write to the database. The dashboard reads only from it.</p>
+      </div>
+      <div class="arch" id="arch">
+        <svg class="arch-svg" id="archSvg" aria-hidden="true"></svg>
+        <ul class="src-list">
+          <li class="src core" data-src="0">
+            <div class="src-top"><span class="src-name">Bioacoustic AI</span><span class="chip chip-now" data-i18n="p1_s">Now</span></div>
+            <p data-i18n="p1_d">Sound from the stations. The core of the project.</p>
+          </li>
+          <li class="src" data-src="1">
+            <div class="src-top"><span class="src-name">Wetland Remote Sensing</span><span class="chip" data-i18n="p2_s">In parallel</span></div>
+            <p data-i18n="p2_d">Water and vegetation from open satellite imagery.</p>
+          </li>
+          <li class="src" data-src="2">
+            <div class="src-top"><span class="src-name">AI Bird Vision</span><span class="chip" data-i18n="p3_s">Second stage</span></div>
+            <p data-i18n="p3_d">Photos and headcounts to calibrate the sound index.</p>
+          </li>
+          <li class="src" data-src="3">
+            <div class="src-top"><span class="src-name">Migration Intelligence</span><span class="chip" data-i18n="p4_s">Later</span></div>
+            <p data-i18n="p4_d">Partners' GPS tracks and observations.</p>
+          </li>
+        </ul>
+        <div class="db" id="archDb">
+          <h3 data-i18n="db_t">One database</h3>
+          <p data-i18n="db_d1">observations: species, time, place</p>
+          <p data-i18n="db_d2">environment layers: water, vegetation</p>
+        </div>
+        <div class="dash" id="archDash">
+          <h3>National Biodiversity Dashboard</h3>
+          <ul>
+            <li data-i18n="dash_i1">Map of Kazakhstan</li>
+            <li data-i18n="dash_i2">Abundance dynamics</li>
+            <li data-i18n="dash_i3">Migration corridors</li>
+            <li data-i18n="dash_i4">Anomaly alerts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="for" id="for">
+    <div class="wrap">
+      <h2 class="reveal" data-i18n="for_h2">Built for people who protect the land.</h2>
+      <div class="acc reveal" id="acc" style="--i:1">
+        <article class="acc-p p-blue on" tabindex="0">
+          <h3 data-i18n="for_1_t">Reserves</h3>
+          <p data-i18n="for_1_p">Know what lives on your territory around the clock. Get alerts about rare species and threats. Keep your own data.</p>
+        </article>
+        <article class="acc-p p-sky" tabindex="0">
+          <h3 data-i18n="for_2_t">Scientists</h3>
+          <p data-i18n="for_2_p">Labeled recordings from the Kazakh steppe, BirdNET and Perch tested on local species, export in Darwin Core.</p>
+        </article>
+        <article class="acc-p p-ink" tabindex="0">
+          <h3 data-i18n="for_3_t">Rangers</h3>
+          <p data-i18n="for_3_p">Alerts in Telegram, a map of stations, nothing complicated to set up.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pilot" id="pilot">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 data-i18n="pilot_h2">First site: Korgalzhyn.</h2>
+        <p class="lead" data-i18n="pilot_sub">A wetland of international importance in the Kazakh steppe.</p>
+      </div>
+      <div class="rows">
+        <div class="row reveal" style="--i:0"><h3 data-i18n="pil_1_t">UNESCO</h3><p data-i18n="pil_1_p">Part of the World Heritage site Saryarka, Steppe and Lakes of Northern Kazakhstan (2008).</p></div>
+        <div class="row reveal" style="--i:1"><h3 data-i18n="pil_2_t">Ramsar</h3><p data-i18n="pil_2_p">A wetland of international importance: the Tengiz and Korgalzhyn lake system.</p></div>
+        <div class="row reveal" style="--i:2"><h3 data-i18n="pil_3_t">Flamingos</h3><p data-i18n="pil_3_p">Lake Tengiz is described as the northernmost flamingo nesting site in the world.</p></div>
+      </div>
+      <p class="note" data-i18n="pilot_src">Sources: UNESCO (whc.unesco.org), Ramsar Convention (ramsar.org)</p>
+    </div>
+  </section>
+
+  <section class="globe" id="globe">
+    <div class="globe-pin" id="globePin">
+      <div class="wrap globe-grid">
+        <div class="globe-copy">
+          <h2 data-i18n="globe_h2">From one reserve to a whole country.</h2>
+          <p class="lead" data-i18n="globe_p">Events from every reserve flow into one national dashboard in Astana. More reserves join the same system.</p>
+          <ul class="legend">
+            <li><span class="lg lg-pilot"></span><span data-i18n="leg_pilot">Pilot: Korgalzhyn</span></li>
+            <li><span class="lg lg-next"></span><span data-i18n="leg_next">Next reserves</span></li>
+            <li><span class="lg lg-dash"></span><span data-i18n="leg_dash">National dashboard</span></li>
+          </ul>
+        </div>
+        <div class="globe-stage">
+          <canvas id="globeCanvas" role="img" aria-label="Rotating globe that settles on Kazakhstan and sends events to Astana"></canvas>
+          <span class="glabel" id="lblAstana" data-i18n="lbl_astana">Astana</span>
+          <span class="glabel glabel-sm" id="lblKorg" data-i18n="lbl_korg">Korgalzhyn</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof" id="proof">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="proof_eyebrow">Validation</p>
+        <h2 data-i18n="proof_h2">How we test it.</h2>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-item reveal" style="--i:0"><h3 data-i18n="pr1_t">Baseline</h3><p data-i18n="pr1_p">BirdNET and Perch on existing recordings give a first accuracy table by species.</p></div>
+        <div class="proof-item reveal" style="--i:1"><h3 data-i18n="pr2_t">Own dataset</h3><p data-i18n="pr2_p">Korgalzhyn recordings labeled with the reserve's ornithologist, so the accuracy is verified.</p></div>
+        <div class="proof-item reveal" style="--i:2"><h3 data-i18n="pr3_t">Honest split</h3><p data-i18n="pr3_p">We test on other sites and other dates, not on random clips of one recording.</p></div>
+        <div class="proof-item reveal" style="--i:3"><h3 data-i18n="pr4_t">Field test</h3><p data-i18n="pr4_p">A reference recorder runs alongside. Wind and water are tested separately. False alarms are counted per hour.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="plan" id="plan">
+    <div class="wrap plan-grid">
+      <h2 class="plan-h" data-i18n="plan_h2">Six steps. Each one shows a result.</h2>
+      <div class="timeline" id="timeline">
+        <span class="tl-line" aria-hidden="true"><i class="tl-fill" id="tlFill"></i></span>
+        <div class="tl-item"><h3 data-i18n="pl1_t">Contact</h3><p data-i18n="pl1_p">The reserve agrees to the installation and names an advising ornithologist.</p></div>
+        <div class="tl-item"><h3 data-i18n="pl2_t">Baseline</h3><p data-i18n="pl2_p">First accuracy table for BirdNET and Perch.</p></div>
+        <div class="tl-item"><h3 data-i18n="pl3_t">Dataset</h3><p data-i18n="pl3_p">Collection and labeling, split by site and date.</p></div>
+        <div class="tl-item"><h3 data-i18n="pl4_t">Model and MVP</h3><p data-i18n="pl4_p">Fine-tuning, quantization, event feed and Telegram alerts on one station.</p></div>
+        <div class="tl-item"><h3 data-i18n="pl5_t">Field season</h3><p data-i18n="pl5_p">Power draw, LoRa range, comparison with a reference recorder.</p></div>
+        <div class="tl-item"><h3 data-i18n="pl6_t">Analysis and defense</h3><p data-i18n="pl6_p">Results for the RKNP and ISEF science competitions.</p></div>
+        <p class="tl-extra" data-i18n="plan_par">In parallel: satellite analysis of water and vegetation.</p>
+        <p class="tl-extra" data-i18n="plan_next">Next: a second reserve with different terrain, to test whether the model transfers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="join" id="join">
+    <div class="wrap">
+      <h2 class="reveal" data-i18n="join_h2">Be the first reserve to listen.</h2>
+      <p class="lead reveal" style="--i:1" data-i18n="join_p">We are looking for a pilot reserve, an ornithologist, and mentors in audio ML and remote sensing.</p>
+      <div class="reveal" style="--i:2">
+        <a class="btn btn-primary btn-lg mag" data-mail href="mailto:zzhaseka@gmail.com" data-i18n="cta">Join the pilot</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <a class="logo" href="#top" aria-label="WetlandEar">
+      <span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="logo-word">WetlandEar</span>
+    </a>
+    <p data-i18n="foot_built">Built in Astana by Zhasmin Jumanova.</p>
+    <p class="foot-links"><a data-mail href="mailto:zzhaseka@gmail.com">zzhaseka@gmail.com</a> <a href="https://zhasmin-jumanova.vercel.app" rel="noopener" data-i18n="foot_site">Portfolio</a></p>
+  </div>
+</footer>
+
+<button type="button" class="totop" id="toTop" aria-label="Back to top">&uarr;</button>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/three.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/spectrogram.js"></script>
+<script src="js/globe.js"></script>
+<script src="js/pipeline.js"></script>
+<script src="js/demo.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
