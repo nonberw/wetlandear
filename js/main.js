@@ -26,6 +26,17 @@
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); } });
   }, { threshold: .15, rootMargin: '0px 0px -6% 0px' });
   $$('.reveal').forEach(function (el) { revealIO.observe(el); });
+  /* Safety net for fast flicks on phones: anything already scrolled past is shown, never left invisible. */
+  var revealTick = false;
+  function revealPassed() {
+    revealTick = false;
+    $$('.reveal:not(.in)').forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight * .9) { el.classList.add('in'); revealIO.unobserve(el); }
+    });
+  }
+  window.addEventListener('scroll', function () {
+    if (!revealTick) { revealTick = true; requestAnimationFrame(revealPassed); }
+  }, { passive: true });
 
   /* ---------- Problem statement: words light up as you read ---------- */
   var words = [], shown = -1;
