@@ -523,3 +523,12 @@ button, a, .src, .acc-p { touch-action: manipulation; }
 
 /* ---------- Hero: click or tap makes the birds answer ---------- */
 .hero-ring { position: absolute; width: 26px; height: 26px; border: 2px solid var(--blue); border-radius: 50%; translate: -50% -50%; pointer-events: none; animation: ringOut 1.5s var(--ease) forwards; z-index: 1; }
+
+/* App link in the nav and the call to open the prototype in the Platform card */
+.nav-links .nav-app { display: inline-flex; align-items: center; gap: 5px; color: var(--blue); }
+.nav-links .nav-app i { font-style: normal; display: inline-block; transition: transform .25s var(--ease); }
+@media (hover: hover) { .nav-links .nav-app:hover i { transform: translate(2px, -2px); } }
+.plat-app { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.plat-app small { flex: 1 1 220px; color: var(--soft); font-size: .86rem; line-height: 1.4; }
+.nav-links a { white-space: nowrap; }
+@media (max-width: 1180px) { .nav-links .nav-app { display: none; } }

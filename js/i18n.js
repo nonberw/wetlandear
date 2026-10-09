@@ -4,7 +4,7 @@
   var D = {
     en: {
       skip: 'Skip to content',
-      nav_how: 'How it works', nav_product: 'Platform', nav_parts: 'Components', nav_pilot: 'Pilot site',
+      nav_how: 'How it works', nav_product: 'Platform', nav_parts: 'Components', nav_pilot: 'Pilot site', nav_app: 'App', app_open: 'Open the app prototype', app_note: 'Record on a phone, find sound events, verify them. Species are named by a person for now.',
       cta: 'Join the pilot',
       hero_h1_a: 'Hear every', hero_h1_b: 'reserve.',
       hero_sub: 'An open acoustic monitoring system. Solar stations listen to birds, rangers see everything on one map.',
@@ -37,7 +37,7 @@
       node_p: 'A low-cost, solar-powered listening device. It runs the species model itself and sends only events.',
       node_li1: 'ESP32-S3 with an I2S MEMS microphone', node_li2: 'LoRa radio for remote terrain',
       node_li3: 'Solar panel and battery', node_li4: 'On-device species model',
-      plat_t: 'Platform', plat_badge: 'In design',
+      plat_t: 'Platform', plat_badge: 'Prototype',
       plat_p: 'One screen for the whole reserve. Works offline with a local gateway.',
       plat_li1: 'Event feed with an audio clip to verify', plat_li2: 'Station map with battery and last contact',
       plat_li3: 'Telegram alerts for rare species and threats', plat_li4: 'CSV and Darwin Core export for GBIF',
@@ -99,7 +99,7 @@
 
     ru: {
       skip: 'К содержимому',
-      nav_how: 'Как это работает', nav_product: 'Платформа', nav_parts: 'Компоненты', nav_pilot: 'Площадка',
+      nav_how: 'Как это работает', nav_product: 'Платформа', nav_parts: 'Компоненты', nav_pilot: 'Площадка', nav_app: 'Приложение', app_open: 'Открыть прототип приложения', app_note: 'Запишите звук на телефон, найдите события и проверьте их. Вид пока определяет человек.',
       cta: 'Войти в пилот',
       hero_h1_a: 'Слышать каждый', hero_h1_b: 'заповедник.',
       hero_sub: 'Открытая система акустического мониторинга. Солнечные станции слушают птиц, а рейнджеры видят всё на одной карте.',
@@ -132,7 +132,7 @@
       node_p: 'Недорогое устройство на солнечной батарее. Само запускает модель определения видов и отправляет только события.',
       node_li1: 'ESP32-S3 с MEMS-микрофоном I2S', node_li2: 'Радио LoRa для удалённой местности',
       node_li3: 'Солнечная панель и батарея', node_li4: 'Модель видов на устройстве',
-      plat_t: 'Платформа', plat_badge: 'Проектируется',
+      plat_t: 'Платформа', plat_badge: 'Прототип',
       plat_p: 'Один экран для всего заповедника. Работает без интернета с локальным шлюзом.',
       plat_li1: 'Лента событий с фрагментом звука для проверки', plat_li2: 'Карта станций с зарядом и последней связью',
       plat_li3: 'Оповещения в Telegram о редких видах и угрозах', plat_li4: 'Экспорт в CSV и Darwin Core для GBIF',
