@@ -3,7 +3,7 @@
 (function () {
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasGsap = !!(window.gsap && window.ScrollTrigger);
-  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+  if (hasGsap) { gsap.registerPlugin(ScrollTrigger); ScrollTrigger.config({ ignoreMobileResize: true }); }
   function $(s, c) { return (c || document).querySelector(s); }
   function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
 
@@ -54,7 +54,7 @@
   }
 
   /* ---------- Hero spectrogram ---------- */
-  if (window.WESpectrogram) WESpectrogram($('#heroCanvas'), { scale: 2, speed: 60, hero: $('.hero') });
+  var heroSpec = window.WESpectrogram ? WESpectrogram($('#heroCanvas'), { scale: window.innerWidth < 900 ? 3 : 2, speed: 60, hero: $('.hero') }) : null;
 
   /* ---------- Signal path ---------- */
   var steps = $$('.step'), descs = $$('.desc'), bar = $('#howBar'), pipe = null, cur = 0, howST = null;
@@ -224,6 +224,20 @@
       aura.style.setProperty('--ax', ((e.clientX - r.left) / r.width - .5).toFixed(3));
       aura.style.setProperty('--ay', ((e.clientY - r.top) / r.height - .5).toFixed(3));
     }, { passive: true });
+  }
+
+  /* ---------- Hero: a click or tap makes the birds answer ---------- */
+  if (heroEl && heroSpec && !reduce) {
+    heroEl.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('a, button')) return;
+      var r = heroEl.getBoundingClientRect(), c = $('.hero-canvas').getBoundingClientRect();
+      var ring = document.createElement('span');
+      ring.className = 'hero-ring';
+      ring.style.left = (e.clientX - r.left) + 'px'; ring.style.top = (e.clientY - r.top) + 'px';
+      heroEl.appendChild(ring); setTimeout(function () { ring.remove(); }, 1600);
+      var y = Math.min(1, Math.max(0, (e.clientY - c.top) / c.height));
+      for (var i = 0; i < 4; i++) setTimeout(function (k) { heroSpec.burst(Math.min(.95, Math.max(.05, y + (k - 1.5) * .12))); }.bind(null, i), i * 140);
+    });
   }
 
   /* ---------- Manifesto: three words, one per stretch of scroll ---------- */

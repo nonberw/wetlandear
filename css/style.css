@@ -482,3 +482,44 @@ li[data-kind="threat"] .ev-c { color: var(--alert); }
   .ping { animation-duration: .01s; }
   .acc-p, .acc-p p { transition-duration: .01s; }
 }
+
+/* ---------- Typography polish ---------- */
+h1, h2, h3, .statement, .prob-close, .mw { text-wrap: balance; }
+p, li, .lead { text-wrap: pretty; }
+html { -webkit-tap-highlight-color: transparent; }
+button, a, .src, .acc-p { touch-action: manipulation; }
+
+/* ---------- iPhone notch and home bar ---------- */
+.nav-in, .wrap, .hero { padding-left: max(var(--pad), env(safe-area-inset-left)); padding-right: max(var(--pad), env(safe-area-inset-right)); }
+.mw { left: max(var(--pad), env(safe-area-inset-left)); }
+.totop { right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); }
+.foot { padding-bottom: max(32px, env(safe-area-inset-bottom)); }
+
+/* ---------- Touch targets: at least 44px ---------- */
+@media (pointer: coarse) {
+  .lang button { min-height: 38px; padding: 8px 14px; }
+  .btn-sm { padding: 12px 20px; }
+  .ptabs button, .chips button, .btn-tool { padding: 12px 18px; min-height: 44px; }
+  .step button { padding: 6px 0; }
+  .nav-links a { padding: 10px 0; }
+}
+
+/* ---------- iPad landscape and small laptops ---------- */
+@media (min-width: 901px) and (max-width: 1100px) {
+  .nav-links { gap: 16px; font-size: .88rem; }
+  .b-node, .b-plat { grid-column: span 12; }
+  .b-node { min-height: 380px; }
+  .arch { gap: 28px; }
+  .globe-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 380px) {
+  .hero-h1 { font-size: 2.15rem; }
+  .btn-lg { padding: 15px 24px; }
+  .ptabs button { padding: 10px 14px; }
+  .pv { padding: 14px 12px 24px; }
+}
+
+/* ---------- Hero: click or tap makes the birds answer ---------- */
+.hero-ring { position: absolute; width: 26px; height: 26px; border: 2px solid var(--blue); border-radius: 50%; translate: -50% -50%; pointer-events: none; animation: ringOut 1.5s var(--ease) forwards; z-index: 1; }

@@ -32,7 +32,7 @@
     if (!window.THREE) return null;
     var T = THREE, renderer;
     try { renderer = new T.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); } catch (e) { return null; }
-    renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+    renderer.setPixelRatio(Math.min(window.innerWidth < 900 ? 1.5 : 2, window.devicePixelRatio || 1));
     var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     var scene = new T.Scene(), camera = new T.PerspectiveCamera(30, 1, .1, 60);
     var group = new T.Group(); scene.add(group);
@@ -54,7 +54,7 @@
     })));
 
     /* dots: land is strong blue, ocean is a faint grid of specks */
-    var N = 15000, land = [], sea = [], gold = Math.PI * (3 - Math.sqrt(5));
+    var N = window.innerWidth < 900 ? 8000 : 15000, land = [], sea = [], gold = Math.PI * (3 - Math.sqrt(5));
     for (var i = 0; i < N; i++) {
       var y = 1 - (i + .5) / N * 2, rr = Math.sqrt(1 - y * y), ph = i * gold;
       var x = Math.cos(ph) * rr, z = Math.sin(ph) * rr;
