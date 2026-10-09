@@ -92,7 +92,7 @@
 
       join_h2: 'Be the first reserve to listen.',
       join_p: 'We are looking for a pilot reserve, an ornithologist, and mentors in audio ML and remote sensing.',
-      foot_built: 'Built in Astana by Zhasmin Jumanova.', foot_site: 'Portfolio',
+      foot_built: 'Built in Astana by Zhasmin Jumanova.', foot_site: 'Portfolio', foot_privacy: 'Privacy',
       mail_subject: 'WetlandEar pilot',
       mail_body: 'Hello Zhasmin,\n\nWe are interested in the WetlandEar pilot.\n\nReserve or organization:\nContact person:\n'
     },
@@ -187,7 +187,7 @@
 
       join_h2: 'Станьте первым заповедником, который слушает.',
       join_p: 'Ищем пилотный заповедник, орнитолога и наставников по ML для звука и дистанционному зондированию.',
-      foot_built: 'Сделано в Астане: Zhasmin Jumanova.', foot_site: 'Портфолио',
+      foot_built: 'Сделано в Астане: Zhasmin Jumanova.', foot_site: 'Портфолио', foot_privacy: 'Конфиденциальность',
       mail_subject: 'WetlandEar: пилот',
       mail_body: 'Здравствуйте, Zhasmin!\n\nНас интересует пилот WetlandEar.\n\nЗаповедник или организация:\nКонтактное лицо:\n'
     }
