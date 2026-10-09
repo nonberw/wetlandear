@@ -11,7 +11,10 @@
       hsp: 'По видам', nsp: 'Доля фрагментов, где вид назван верно. Серым показано, сколько называет верно BirdNET. Если у BirdNET нет такого вида, у него 0%.', search: 'Найти вид', sh: 'По точности', sg: 'По выигрышу над BirdNET', sn: 'По числу записей',
       th: ['Вид', 'Записей', 'WetlandEar', 'BirdNET'], nobn: 'нет в BirdNET', few: 'мало данных',
       hm: 'Как это измерено и что нельзя утверждать',
-      method: ['<b>Данные.</b> Записи с Xeno-canto (открытые лицензии, без запрета на производные работы), птицы водоёмов и степей Казахстана. По каждому виду от 2 до 30 записей.', '<b>Проверка.</b> Пятикратная перекрёстная проверка с разбиением по записям: ни один фрагмент проверочной записи не участвует в обучении.', '<b>Что сравниваем.</b> BirdNET V2.4 с фильтром по местности против нашей модели: небольшой классификатор на «отпечатках» BirdNET плюс небольшой вклад оценок самой BirdNET и калибровка уверенности.', '<b>Ограничения.</b> Записи Xeno-canto обычно чище полевых: в поле с ветром и водой точность будет ниже. Для видов с малым числом записей цифры менее надёжны. Приложение всегда просит человека подтвердить вид.', '<b>Лицензии.</b> Модели BirdNET и записи Xeno-canto используются в некоммерческих исследовательских целях.'],
+      method: ['<b>Данные.</b> Записи с Xeno-canto (открытые лицензии, без запрета на производные работы), птицы водоёмов и степей Казахстана. По каждому виду от 2 до 60 записей, всего более 6 000. Для устойчивости к шуму каждый фрагмент дополнительно смешивали с шорохом камыша, ветром, водой, дождём, фоном полевых записей и пением других птиц.', '<b>Проверка.</b> Пятикратная перекрёстная проверка с разбиением по записям: ни один фрагмент проверочной записи не участвует в обучении.', '<b>Что сравниваем.</b> BirdNET V2.4 с фильтром по местности против нашей модели: небольшой классификатор на «отпечатках» BirdNET плюс небольшой вклад оценок самой BirdNET и калибровка уверенности.', '<b>Ограничения.</b> Записи Xeno-canto обычно чище полевых, а шум в проверке смоделирован. Настоящий камыш и ветер могут вести себя иначе, поэтому в поле точность может быть ниже. Для видов с малым числом записей цифры менее надёжны. Приложение всегда просит человека подтвердить вид.', '<b>Лицензии.</b> Модели BirdNET и записи Xeno-canto используются в некоммерческих исследовательских целях.'],
+      hnz: 'А если вокруг шум: камыш, ветер, вода', nnz: 'Те же записи, но смешанные с шумом: шорох камыша, ветер, вода, дождь, реальный фон полевых записей, пение других птиц. Проверка снова на записях, которых модель не видела. Мы специально обучаем модель на таких смесях.',
+      nzclean: 'Чистые записи', nznoisy: 'Шумные записи', nzbn: 'BirdNET', nzwe: 'WetlandEar', nzcol: ['Что мешает', 'Фрагментов', 'WetlandEar', 'BirdNET'], nzcol2: ['Насколько громкий шум', 'Фрагментов', 'WetlandEar', 'BirdNET'],
+      types: { reeds: 'Шорох камыша', wind: 'Ветер', water: 'Вода', rain: 'Дождь', bg: 'Фон полевых записей', chorus: 'Поют другие птицы', mix: 'Два шума сразу' }, snr: 'сигнал сильнее шума на {a} дБ',
       foot: 'Обновлено {d}. Приложение: app.wetlandear.tech'
     },
     en: {
@@ -23,7 +26,10 @@
       hsp: 'By species', nsp: 'Share of fragments where the species is named correctly. Grey shows how often BirdNET names it correctly. If BirdNET has no such species it scores 0%.', search: 'Find a species', sh: 'By accuracy', sg: 'By gain over BirdNET', sn: 'By recordings',
       th: ['Species', 'Recordings', 'WetlandEar', 'BirdNET'], nobn: 'not in BirdNET', few: 'little data',
       hm: 'How it was measured and what we cannot claim',
-      method: ['<b>Data.</b> Xeno-canto recordings (open licenses, no-derivatives excluded) of wetland and steppe birds of Kazakhstan. From 2 to 30 recordings per species.', '<b>Testing.</b> Five-fold cross-validation split by recording: no fragment of a test recording is ever used for training.', '<b>What is compared.</b> BirdNET V2.4 with a location filter against our model: a small classifier on BirdNET "fingerprints" plus a small contribution of BirdNET\'s own scores and confidence calibration.', '<b>Limits.</b> Xeno-canto recordings are usually cleaner than field audio: with wind and water accuracy will be lower. For species with few recordings the numbers are less reliable. The app always asks a person to confirm the species.', '<b>Licenses.</b> BirdNET models and Xeno-canto recordings are used for non-commercial research.'],
+      method: ['<b>Data.</b> Xeno-canto recordings (open licenses, no-derivatives excluded) of wetland and steppe birds of Kazakhstan. From 2 to 60 recordings per species, more than 6,000 in total. For robustness to noise each fragment was also mixed with reed rustle, wind, water, rain, field background and other birds singing.', '<b>Testing.</b> Five-fold cross-validation split by recording: no fragment of a test recording is ever used for training.', '<b>What is compared.</b> BirdNET V2.4 with a location filter against our model: a small classifier on BirdNET "fingerprints" plus a small contribution of BirdNET\'s own scores and confidence calibration.', '<b>Limits.</b> Xeno-canto recordings are usually cleaner than field audio, and the noise in testing is simulated. Real reeds and wind can behave differently, so field accuracy may be lower. For species with few recordings the numbers are less reliable. The app always asks a person to confirm the species.', '<b>Licenses.</b> BirdNET models and Xeno-canto recordings are used for non-commercial research.'],
+      hnz: 'What if it is noisy: reeds, wind, water', nnz: 'The same recordings mixed with noise: reed rustle, wind, water, rain, real field background, other birds singing. Tested again on recordings the model has not seen. We deliberately train the model on such mixtures.',
+      nzclean: 'Clean recordings', nznoisy: 'Noisy recordings', nzbn: 'BirdNET', nzwe: 'WetlandEar', nzcol: ['What interferes', 'Fragments', 'WetlandEar', 'BirdNET'], nzcol2: ['How loud the noise is', 'Fragments', 'WetlandEar', 'BirdNET'],
+      types: { reeds: 'Reed rustle', wind: 'Wind', water: 'Water', rain: 'Rain', bg: 'Field background', chorus: 'Other birds singing', mix: 'Two noises at once' }, snr: 'signal louder than noise by {a} dB',
       foot: 'Updated {d}. App: app.wetlandear.tech'
     }
   };
@@ -56,8 +62,28 @@
       var row = el('div', 'calrow'); row.appendChild(el('div', 't', t.conf + ' ' + r.lo.toFixed(2).replace('.', lang === 'ru' ? ',' : '.') + '–' + r.hi.toFixed(2).replace('.', lang === 'ru' ? ',' : '.')));
       var b = el('div', 'b'); b.style.setProperty('--w', Math.round(r.right * 100) + '%'); row.appendChild(b); row.appendChild(el('div', 'v', pct0(r.right) + ' ' + t.right)); cal.appendChild(row);
     });
-    table();
+    table(); noise();
     $('#foot').textContent = t.foot.replace('{d}', data.generated);
+  }
+  function simpleTable(box, cols, rows) {
+    box.innerHTML = '';
+    var h = el('div', 'tr h'); cols.forEach(function (x, i) { h.appendChild(el('div', i === 1 ? 'r' : '', x)); }); box.appendChild(h);
+    rows.forEach(function (r) {
+      var tr = el('div', 'tr'), n = el('div', 'n', r.name); tr.appendChild(n); tr.appendChild(el('div', 'r', r.n.toLocaleString(lang === 'ru' ? 'ru-RU' : 'en-US')));
+      var a = el('div', 'mini'); a.appendChild(bar(r.we)); a.appendChild(el('b', '', pct0(r.we))); tr.appendChild(a);
+      var b = el('div', 'mini g'); b.appendChild(bar(r.bn, '')); b.appendChild(el('b', '', pct0(r.bn))); tr.appendChild(b); box.appendChild(tr);
+    });
+  }
+  function noise() {
+    var sec = $('#sec-nz'), t = T[lang], rb = data.robustness; if (!rb) { sec.hidden = true; return; }
+    sec.hidden = false; $('#h-nz').textContent = t.hnz; $('#n-nz').textContent = t.nnz;
+    var hero = $('#nz-hero'); hero.innerHTML = '';
+    [[t.nzclean, rb.summary.clean], [t.nznoisy, rb.summary.noisy]].forEach(function (c) {
+      var card = el('div', 'card'); card.appendChild(el('div', 'big', pct(c[1].clean_plus_noisy_head))); card.appendChild(el('div', 'lab', c[0]));
+      card.appendChild(el('div', 'vs', t.nzbn + ': ' + pct(c[1].birdnet_restricted))); var b = el('div', 'bar2'); b.appendChild(bar(c[1].clean_plus_noisy_head)); b.appendChild(bar(c[1].birdnet_restricted, 'g')); card.appendChild(b); hero.appendChild(card);
+    });
+    simpleTable($('#nz-type'), t.nzcol, rb.by_noise_type.map(function (r) { return { name: t.types[r.type] || r.type, n: r.windows, we: r.with_noise, bn: r.birdnet }; }));
+    simpleTable($('#nz-snr'), t.nzcol2, rb.by_snr.map(function (r) { return { name: t.snr.replace('{a}', (r.lo + '…' + r.hi).replace('-', '−')), n: r.windows, we: r.with_noise, bn: r.birdnet }; }));
   }
   function table() {
     var t = T[lang], tbl = $('#tbl'); tbl.innerHTML = '';

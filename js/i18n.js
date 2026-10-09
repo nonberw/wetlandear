@@ -4,7 +4,7 @@
   var D = {
     en: {
       skip: 'Skip to content',
-      nav_how: 'How it works', nav_product: 'Platform', nav_parts: 'Components', nav_pilot: 'Pilot site', nav_app: 'App', app_open: 'Open the app prototype', app_note: 'Record on a phone, find sound events, verify them. Species are named by a person for now.',
+      nav_how: 'How it works', nav_product: 'Platform', nav_parts: 'Components', nav_metrics: 'Metrics', nav_pilot: 'Pilot site', nav_app: 'App', app_open: 'Open the app prototype', app_note: 'Record on a phone, find sound events, verify them. Species are named by a person for now.',
       cta: 'Join the pilot',
       hero_h1_a: 'Hear every', hero_h1_b: 'reserve.',
       hero_sub: 'An open acoustic monitoring system. Solar stations listen to birds, rangers see everything on one map.',
@@ -99,7 +99,7 @@
 
     ru: {
       skip: 'К содержимому',
-      nav_how: 'Как это работает', nav_product: 'Платформа', nav_parts: 'Компоненты', nav_pilot: 'Площадка', nav_app: 'Приложение', app_open: 'Открыть прототип приложения', app_note: 'Запишите звук на телефон, найдите события и проверьте их. Вид пока определяет человек.',
+      nav_how: 'Как это работает', nav_product: 'Платформа', nav_parts: 'Компоненты', nav_metrics: 'Метрики', nav_pilot: 'Площадка', nav_app: 'Приложение', app_open: 'Открыть прототип приложения', app_note: 'Запишите звук на телефон, найдите события и проверьте их. Вид пока определяет человек.',
       cta: 'Войти в пилот',
       hero_h1_a: 'Слышать каждый', hero_h1_b: 'заповедник.',
       hero_sub: 'Открытая система акустического мониторинга. Солнечные станции слушают птиц, а рейнджеры видят всё на одной карте.',
