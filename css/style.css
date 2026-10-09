@@ -532,3 +532,16 @@ button, a, .src, .acc-p { touch-action: manipulation; }
 .plat-app small { flex: 1 1 220px; color: var(--soft); font-size: .86rem; line-height: 1.4; }
 .nav-links a { white-space: nowrap; }
 @media (max-width: 1180px) { .nav-links .nav-app { display: none; } }
+
+/* Launch row: the whole strip is the link */
+.plat-app { display: none; }
+.app-launch { display: flex; align-items: center; gap: 14px; margin-top: 18px; padding: 14px 16px; border-radius: 20px; background: linear-gradient(135deg, #1F5BFF, #4F80FF); color: #fff; text-decoration: none; position: relative; overflow: hidden; box-shadow: 0 18px 40px -18px rgba(31, 91, 255, .7); transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+.app-launch::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .28) 50%, transparent 70%); transform: translateX(-120%); transition: transform .8s var(--ease); }
+.al-ic { flex: none; width: 46px; height: 46px; border-radius: 14px; background: rgba(255, 255, 255, .2); display: grid; place-items: center; }
+.al-ic svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.al-tx { flex: 1; display: grid; gap: 2px; min-width: 0; }
+.al-tx b { font-size: 1.02rem; letter-spacing: -.01em; }
+.al-tx small { color: rgba(255, 255, 255, .85); font-size: .82rem; line-height: 1.35; }
+.al-go { flex: none; font-size: 1.5rem; line-height: 1; transition: transform .3s var(--ease); }
+.app-launch:active { transform: scale(.98); }
+@media (hover: hover) { .app-launch:hover { transform: translateY(-3px); box-shadow: 0 26px 50px -18px rgba(31, 91, 255, .8); } .app-launch:hover::after { transform: translateX(120%); } .app-launch:hover .al-go { transform: translate(3px, -3px); } }
