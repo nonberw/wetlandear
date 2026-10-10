@@ -17,6 +17,21 @@
       types: { reeds: 'Шорох камыша', wind: 'Ветер', water: 'Вода', rain: 'Дождь', bg: 'Фон полевых записей', chorus: 'Поют другие птицы', mix: 'Два шума сразу' }, snr: 'сигнал сильнее шума на {a} дБ',
       foot: 'Обновлено {d}. Приложение: app.wetlandear.tech'
     },
+    kk: {
+      eyebrow: 'Адал сандар', h1: 'WetlandEar моделі BirdNET-тен қаншалықты дәлірек',
+      lead: 'Біз модельді оқытқан жазбаларда тексермейміз. Әр жазба не оқытуға, не тексеруге түседі, ешқашан екеуіне бірдей түспейді.',
+      win: '3 секундтық үзінділер бойынша дұрыс', rec: 'Жазба бойынша толық дұрыс', vs: 'Жалғыз BirdNET', species: 'түр', recs: 'жазба', wins: 'үзінді',
+      hcal: 'Сенімділік пайызына сенуге бола ма', ncal: 'Модель 0,9 және одан жоғары көрсеткенде, ол дерлік әрқашан дұрыс. 0,3 болғанда шамамен 40% жағдайда дұрыс. Сондықтан қолданба түрді 0,5-тен бастап өзі қояды, одан төменде тек ұсынады.',
+      conf: 'сенімділік', right: 'дұрыс', share: 'үзінді',
+      hsp: 'Түрлер бойынша', nsp: 'Түр дұрыс аталған үзінділер үлесі. Сұр түспен BirdNET қаншалықты дұрыс атайтыны көрсетілген. BirdNET-те мұндай түр болмаса, оның нәтижесі 0%.', search: 'Түрді іздеу', sh: 'Дәлдік бойынша', sg: 'BirdNET-тен артықшылық бойынша', sn: 'Жазба саны бойынша',
+      th: ['Түр', 'Жазба', 'WetlandEar', 'BirdNET'], nobn: 'BirdNET-те жоқ', few: 'дерек аз',
+      hm: 'Қалай өлшенді және нені айта алмаймыз',
+      method: ['<b>Деректер.</b> Xeno-canto жазбалары (ашық лицензиялар, туынды жұмыстарға тыйым салынғандары алынып тасталған), Қазақстандағы су мен дала құстары. Әр түрге 2-ден 60-қа дейін жазба, барлығы 6 000-нан астам. Шуға төзімділік үшін әр үзінді қосымша қамыс сыбдырымен, желмен, сумен, жаңбырмен, далалық жазбалардың фонымен және басқа құстардың әнімен араластырылды.', '<b>Тексеру.</b> Жазбалар бойынша бөлінген бес еселі айқас тексеру: тексеру жазбасының ешбір үзіндісі оқытуға қатыспайды.', '<b>Нені салыстырамыз.</b> Жергілікті жер сүзгісі бар BirdNET V2.4 және біздің модель: BirdNET «іздері» бойынша шағын классификатор, BirdNET-тің өз бағасының шағын үлесі және сенімділікті калибрлеу.', '<b>Шектеулер.</b> Xeno-canto жазбалары әдетте далалық дыбыстан таза, ал тексерудегі шу модельденген. Нақты қамыс пен жел басқаша болуы мүмкін, сондықтан далада дәлдік төмен болуы мүмкін. Жазбасы аз түрлер үшін сандар сенімділігі аз. Қолданба түрді растауды әрқашан адамнан сұрайды.', '<b>Лицензиялар.</b> BirdNET модельдері мен Xeno-canto жазбалары коммерциялық емес зерттеу мақсатында пайдаланылады.'],
+      hnz: 'Айналада шу болса ше: қамыс, жел, су', nnz: 'Дәл сол жазбалар, бірақ шумен араласқан: қамыс сыбдыры, жел, су, жаңбыр, далалық жазбалардың нақты фоны, басқа құстардың әні. Тексеру модель көрмеген жазбаларда қайта жүргізілді. Модельді арнайы осындай қоспаларда оқытамыз.',
+      nzclean: 'Таза жазбалар', nznoisy: 'Шулы жазбалар', nzbn: 'BirdNET', nzwe: 'WetlandEar', nzcol: ['Не кедергі жасайды', 'Үзінді', 'WetlandEar', 'BirdNET'], nzcol2: ['Шу қаншалықты қатты', 'Үзінді', 'WetlandEar', 'BirdNET'],
+      types: { reeds: 'Қамыс сыбдыры', wind: 'Жел', water: 'Су', rain: 'Жаңбыр', bg: 'Далалық жазбалар фоны', chorus: 'Басқа құстар ән салады', mix: 'Екі шу қатар' }, snr: 'сигнал шудан {a} дБ қаттырақ',
+      foot: 'Жаңартылған {d}. Қолданба: app.wetlandear.tech'
+    },
     en: {
       eyebrow: 'Honest numbers', h1: 'How much more accurate WetlandEar is than BirdNET',
       lead: 'We never test on the recordings we trained on. Each recording goes either to training or to testing, never to both.',
@@ -33,16 +48,16 @@
       foot: 'Updated {d}. App: app.wetlandear.tech'
     }
   };
-  var lang = (function () { try { var s = localStorage.getItem('we-lang'); if (s === 'ru' || s === 'en') return s; } catch (e) { } return /^(ru|kk)/i.test(navigator.language || '') ? 'ru' : 'en'; })();
+  var lang = (function () { try { var s = localStorage.getItem('we-lang'); if (s === 'ru' || s === 'en' || s === 'kk') return s; } catch (e) { } var nl = (navigator.language || '').toLowerCase(); return nl.indexOf('kk') === 0 ? 'kk' : nl.indexOf('ru') === 0 ? 'ru' : 'en'; })();
   var data = null, sortBy = 'head', filter = '';
   function $(s) { return document.querySelector(s); }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
-  function pct(x) { return (x * 100).toFixed(x >= .995 || x < .005 ? 0 : 1).replace('.', lang === 'ru' ? ',' : '.') + '%'; }
+  function pct(x) { return (x * 100).toFixed(x >= .995 || x < .005 ? 0 : 1).replace('.', lang !== 'en' ? ',' : '.') + '%'; }
   function pct0(x) { return Math.round(x * 100) + '%'; }
   function bar(w, cls) { var i = el('i', cls); i.style.setProperty('--w', Math.round(w * 100) + '%'); return i; }
 
   function render() {
-    var t = T[lang]; document.documentElement.lang = lang; document.title = 'WetlandEar: ' + (lang === 'ru' ? 'точность модели' : 'model accuracy');
+    var t = T[lang]; document.documentElement.lang = lang; document.title = 'WetlandEar: ' + (lang === 'ru' ? 'точность модели' : lang === 'kk' ? 'модель дәлдігі' : 'model accuracy');
     $('#eyebrow').textContent = t.eyebrow; $('#h1').textContent = t.h1; $('#lead').textContent = t.lead;
     $('#h-cal').textContent = t.hcal; $('#n-cal').textContent = t.ncal; $('#h-sp').textContent = t.hsp; $('#n-sp').textContent = t.nsp; $('#h-m').textContent = t.hm;
     $('#q').placeholder = t.search; var sb = document.querySelectorAll('#sort button'); sb[0].textContent = t.sh; sb[1].textContent = t.sg; sb[2].textContent = t.sn;
@@ -56,10 +71,10 @@
       if (c[2] != null) { card.appendChild(el('div', 'vs', t.vs + ': ' + pct(c[2]))); var b = el('div', 'bar2'); b.appendChild(bar(c[1])); b.appendChild(bar(c[2], 'g')); card.appendChild(b); }
       hero.appendChild(card);
     });
-    var c3 = el('div', 'card'); c3.appendChild(el('div', 'big', String(data.species))); c3.appendChild(el('div', 'lab', t.species + ' · ' + data.recordings + ' ' + t.recs + ' · ' + data.windows.toLocaleString(lang === 'ru' ? 'ru-RU' : 'en-US') + ' ' + t.wins)); hero.appendChild(c3);
+    var c3 = el('div', 'card'); c3.appendChild(el('div', 'big', String(data.species))); c3.appendChild(el('div', 'lab', t.species + ' · ' + data.recordings + ' ' + t.recs + ' · ' + data.windows.toLocaleString(lang !== 'en' ? 'ru-RU' : 'en-US') + ' ' + t.wins)); hero.appendChild(c3);
     var cal = $('#cal'); cal.innerHTML = '';
     data.calibration.forEach(function (r) {
-      var row = el('div', 'calrow'); row.appendChild(el('div', 't', t.conf + ' ' + r.lo.toFixed(2).replace('.', lang === 'ru' ? ',' : '.') + '–' + r.hi.toFixed(2).replace('.', lang === 'ru' ? ',' : '.')));
+      var row = el('div', 'calrow'); row.appendChild(el('div', 't', t.conf + ' ' + r.lo.toFixed(2).replace('.', lang !== 'en' ? ',' : '.') + '–' + r.hi.toFixed(2).replace('.', lang !== 'en' ? ',' : '.')));
       var b = el('div', 'b'); b.style.setProperty('--w', Math.round(r.right * 100) + '%'); row.appendChild(b); row.appendChild(el('div', 'v', pct0(r.right) + ' ' + t.right)); cal.appendChild(row);
     });
     table(); noise();
@@ -69,7 +84,7 @@
     box.innerHTML = '';
     var h = el('div', 'tr h'); cols.forEach(function (x, i) { h.appendChild(el('div', i === 1 ? 'r' : '', x)); }); box.appendChild(h);
     rows.forEach(function (r) {
-      var tr = el('div', 'tr'), n = el('div', 'n', r.name); tr.appendChild(n); tr.appendChild(el('div', 'r', r.n.toLocaleString(lang === 'ru' ? 'ru-RU' : 'en-US')));
+      var tr = el('div', 'tr'), n = el('div', 'n', r.name); tr.appendChild(n); tr.appendChild(el('div', 'r', r.n.toLocaleString(lang !== 'en' ? 'ru-RU' : 'en-US')));
       var a = el('div', 'mini'); a.appendChild(bar(r.we)); a.appendChild(el('b', '', pct0(r.we))); tr.appendChild(a);
       var b = el('div', 'mini g'); b.appendChild(bar(r.bn, '')); b.appendChild(el('b', '', pct0(r.bn))); tr.appendChild(b); box.appendChild(tr);
     });
@@ -91,7 +106,7 @@
     var rows = data.per_species.filter(function (r) { var q = filter.toLowerCase(); return !q || (r.en + ' ' + r.ru + ' ' + r.sci).toLowerCase().indexOf(q) >= 0; });
     rows.sort(function (a, b) { return sortBy === 'gain' ? (b.head - b.birdnet) - (a.head - a.birdnet) : sortBy === 'n' ? b.recordings - a.recordings : b.head - a.head; });
     rows.forEach(function (r) {
-      var tr = el('div', 'tr'), n = el('div', 'n'); n.appendChild(document.createTextNode(lang === 'ru' && r.ru ? r.ru : r.en));
+      var tr = el('div', 'tr'), n = el('div', 'n'); n.appendChild(document.createTextNode((lang === 'ru' || lang === 'kk') && r.ru ? r.ru : r.en));
       if (!r.in_birdnet) n.appendChild(el('span', 'tag', t.nobn)); if (r.recordings < 5) n.appendChild(el('span', 'tag', t.few));
       n.appendChild(el('small', '', r.sci)); tr.appendChild(n); tr.appendChild(el('div', 'r', String(r.recordings)));
       var a = el('div', 'mini'); a.appendChild(bar(r.head)); a.appendChild(el('b', '', pct0(r.head))); tr.appendChild(a);

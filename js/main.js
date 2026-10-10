@@ -303,7 +303,7 @@
 
   /* ---------- Language switch: the pill slides ---------- */
   var langBox = $('.lang');
-  function langPos() { if (langBox) langBox.style.setProperty('--pos', WE.lang === 'ru' ? 0 : 1); }
+  function langPos() { if (langBox) langBox.style.setProperty('--pos', WE.lang === 'ru' ? 0 : WE.lang === 'en' ? 1 : 2); }
   langPos();
   window.addEventListener('we:lang', function () { langPos(); var t = $('#toTop'); if (t) t.setAttribute('aria-label', WE.t('totop')); });
 
