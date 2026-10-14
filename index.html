@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="css/style.css?v=20261009">
+<link rel="stylesheet" href="css/nature.css?v=20261014">
 <script src="js/boot.js?v=20261009"></script>
 <noscript><style>.i18n-pending body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}.hero-h1 .line>span{transform:none!important}</style></noscript>
 </head>
@@ -53,6 +54,14 @@
 
   <section class="hero" id="top">
     <div class="aura" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="scene" aria-hidden="true">
+      <div class="sun"></div>
+      <div class="flock" id="flock"></div>
+      <div class="water"><i></i><i></i><i></i></div>
+      <div class="reeds reeds-far" data-depth=".25"><i></i></div>
+      <div class="reeds reeds-mid" data-depth=".5"><i></i></div>
+      <div class="reeds reeds-near" data-depth=".9"><i></i></div>
+    </div>
     <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
     <div class="hero-in">
       <h1 class="hero-h1">
@@ -68,6 +77,7 @@
   </section>
 
   <section class="problem" id="problem">
+    <div class="flock" data-birds="6" data-band="3,40" aria-hidden="true"></div>
     <div class="wrap">
       <p class="statement" id="statement" data-i18n="prob_statement">Reserves are vast. People in the field are few. Birds do not wait for the next survey.</p>
       <div class="prob-grid">
@@ -318,6 +328,33 @@
     </div>
   </section>
 
+  <section class="birds" id="birds">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-i18n="birds_eyebrow">Who we listen for</p>
+        <h2 data-i18n="birds_h2">Voices of marsh and lake.</h2>
+        <p class="lead" data-i18n="birds_p">Every species the system learns starts as a sound. These birds live on the lakes and steppes of Kazakhstan or fly over them.</p>
+      </div>
+      <div class="bird-grid">
+        <figure class="bird-card bc-a reveal" style="--i:0">
+          <img src="img/pelican.webp" width="1400" height="933" loading="lazy" decoding="async" data-alt="alt_pelican" alt="">
+          <a class="credit" href="https://commons.wikimedia.org/wiki/File:%D0%9A%D1%83%D0%B4%D1%80%D1%8F%D0%B2%D1%8B%D0%B9_%D0%BF%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%D0%BD._%D0%9E%D0%B7%D0%B5%D1%80%D0%BE_%D0%9A%D0%B0%D1%80%D0%B0%D0%BA%D0%BE%D0%BB%2C_%D0%9C%D0%B0%D0%BD%D0%B3%D0%B8%D1%81%D1%82%D0%B0%D1%83.jpg" rel="noopener">Максат79 · CC BY-SA 4.0</a>
+          <figcaption><b data-i18n="bird_pelican">Dalmatian pelican</b><em>Pelecanus crispus</em><span class="where" data-i18n="where_pelican">Lake Karakol, Mangystau</span></figcaption>
+        </figure>
+        <figure class="bird-card bc-b reveal" style="--i:1">
+          <img src="img/flamingos.webp" width="1500" height="812" loading="lazy" decoding="async" data-alt="alt_flamingos" alt="">
+          <a class="credit" href="https://commons.wikimedia.org/wiki/File:%D0%A0%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B5_%D1%84%D0%BB%D0%B0%D0%BC%D0%B8%D0%BD%D0%B3%D0%BE_%D0%B2_%D0%B6%D0%B8%D0%B2%D0%BE%D0%B9_%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B5.jpg" rel="noopener">Staranya · CC BY-SA 4.0</a>
+          <figcaption><b data-i18n="bird_flamingo">Greater flamingo</b><em>Phoenicopterus roseus</em><span class="where" data-i18n="where_flamingo">Korgalzhyn Reserve</span></figcaption>
+        </figure>
+        <figure class="bird-card bc-c reveal" style="--i:2">
+          <img src="img/steppe-cranes.webp" width="1600" height="525" loading="lazy" decoding="async" data-alt="alt_cranes" alt="">
+          <a class="credit" href="https://commons.wikimedia.org/wiki/File:Demoiselle_Crane_(Anthropoides_virgo).jpg" rel="noopener">sussexbirder · CC BY 2.0</a>
+          <figcaption><b data-i18n="bird_cranes">Demoiselle cranes</b><em>Anthropoides virgo</em><span class="where" data-i18n="where_cranes">Taukum desert</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="globe" id="globe">
     <div class="globe-pin" id="globePin">
       <div class="wrap globe-grid">
@@ -373,10 +410,16 @@
 
   <section class="join" id="join">
     <div class="wrap">
-      <h2 class="reveal" data-i18n="join_h2">Be the first reserve to listen.</h2>
-      <p class="lead reveal" style="--i:1" data-i18n="join_p">We are looking for a pilot reserve, an ornithologist, and mentors in audio ML and remote sensing.</p>
-      <div class="reveal" style="--i:2">
-        <a class="btn btn-primary btn-lg mag" data-mail href="mailto:zzhaseka@gmail.com" data-i18n="cta">Join the pilot</a>
+      <div class="join-card">
+        <img class="join-bg" src="img/dawn.webp" width="1920" height="1080" loading="lazy" decoding="async" data-alt="alt_dawn" alt="">
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:Sunset_in_Korgalzhyn_Nature_Reserve.jpg" rel="noopener">Dildakhmet · CC BY-SA 4.0</a>
+        <div class="join-in">
+          <h2 class="reveal" data-i18n="join_h2">Be the first reserve to listen.</h2>
+          <p class="lead reveal" style="--i:1" data-i18n="join_p">We are looking for a pilot reserve, an ornithologist, and mentors in audio ML and remote sensing.</p>
+          <div class="reveal" style="--i:2">
+            <a class="btn btn-primary btn-lg mag" data-mail href="mailto:zzhaseka@gmail.com" data-i18n="cta">Join the pilot</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -390,6 +433,7 @@
     </a>
     <p data-i18n="foot_built">Built in Astana by Zhasmin Jumanova.</p>
     <p class="foot-links"><a data-mail href="mailto:zzhaseka@gmail.com">zzhaseka@gmail.com</a> <a href="https://zhasminjumanova.com" rel="noopener" data-i18n="foot_site">Portfolio</a> <a href="/privacy" data-i18n="foot_privacy">Privacy</a> <a href="/metrics" data-i18n="foot_metrics">Model accuracy</a></p>
+    <p class="foot-credit"><span data-i18n="foot_photos">Photos from Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Sunset_in_Korgalzhyn_Nature_Reserve.jpg" rel="noopener">Dildakhmet</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:%D0%A0%D0%BE%D0%B7%D0%BE%D0%B2%D1%8B%D0%B5_%D1%84%D0%BB%D0%B0%D0%BC%D0%B8%D0%BD%D0%B3%D0%BE_%D0%B2_%D0%B6%D0%B8%D0%B2%D0%BE%D0%B9_%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%B5.jpg" rel="noopener">Staranya</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:%D0%9A%D1%83%D0%B4%D1%80%D1%8F%D0%B2%D1%8B%D0%B9_%D0%BF%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%D0%BD._%D0%9E%D0%B7%D0%B5%D1%80%D0%BE_%D0%9A%D0%B0%D1%80%D0%B0%D0%BA%D0%BE%D0%BB%2C_%D0%9C%D0%B0%D0%BD%D0%B3%D0%B8%D1%81%D1%82%D0%B0%D1%83.jpg" rel="noopener">Максат79</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:Demoiselle_Crane_(Anthropoides_virgo).jpg" rel="noopener">sussexbirder</a> (CC BY 2.0).</p>
   </div>
 </footer>
 
@@ -404,5 +448,6 @@
 <script src="js/pipeline.js?v=20261009"></script>
 <script src="js/demo.js?v=20261009"></script>
 <script src="js/main.js?v=20261009"></script>
+<script src="js/nature.js?v=20261014"></script>
 </body>
 </html>

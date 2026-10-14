@@ -1,0 +1,118 @@
+/* WetlandEar: the nature layer. Dawn over the wetland in the brand blue: sun, reeds, water, flying birds, real photographs.
+   Everything here is decoration or content on top of style.css; it reuses its tokens. Motion is transform and opacity only and is switched off
+   for people who ask for reduced motion. */
+:root {
+  --dawn: #FFE3C8;
+  --reed-far: #AFC3E8;
+  --reed-mid: #6F8DBE;
+  --reed-near: #14324A;
+  --bird: #23407A;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ---------- Hero scene ---------- */
+.hero { background: linear-gradient(180deg, #F2F6FF 0%, #F7F9FD 38%, #FBF1E8 78%, #FFE7D2 100%); }
+.scene { position: absolute; inset: 0; pointer-events: none; z-index: auto; }
+.sun { position: absolute; z-index: 0; right: clamp(6vw, 17vw, 24vw); bottom: clamp(70px, 24dvh, 260px); width: clamp(120px, 15vw, 250px); aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #FFF6E0 0%, #FFE2B5 34%, rgba(255, 214, 160, .55) 52%, rgba(255, 214, 160, 0) 72%);
+  box-shadow: 0 0 120px 60px rgba(255, 220, 176, .35); opacity: 0; animation: sunrise 2.8s var(--ease-out) .25s forwards; }
+@keyframes sunrise { from { opacity: 0; transform: translate3d(0, 46px, 0) scale(.92); } to { opacity: .95; transform: none; } }
+
+.reeds { position: absolute; left: -3%; right: -3%; bottom: -2px; pointer-events: none; will-change: transform; }
+.reeds i { position: absolute; inset: 0; background-repeat: repeat-x; background-position: left bottom; background-size: auto 100%; transform-origin: 50% 100%; animation: sway 8s ease-in-out infinite alternate; }
+.reeds-far { z-index: 2; height: clamp(110px, 17dvh, 220px); }
+.reeds-far i { background-image: url(../img/reeds-far.svg); animation-duration: 11s; }
+.reeds-mid { z-index: 3; height: clamp(150px, 23dvh, 300px); }
+.reeds-mid i { background-image: url(../img/reeds-mid.svg); animation-duration: 8.5s; animation-delay: -3s; }
+.reeds-near { z-index: 4; height: clamp(190px, 29dvh, 380px); }
+.reeds-near i { background-image: url(../img/reeds-near.svg); animation-duration: 6.4s; animation-delay: -1.5s; }
+@keyframes sway { from { transform: skewX(-.8deg); } to { transform: skewX(.9deg); } }
+
+.water { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; height: clamp(90px, 15dvh, 190px); background: linear-gradient(180deg, rgba(190, 212, 250, 0) 0%, rgba(176, 202, 246, .55) 100%); }
+.water i { position: absolute; left: 0; height: 2px; width: clamp(90px, 16vw, 240px); border-radius: 2px; background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .95), rgba(255, 255, 255, 0)); opacity: 0; animation: glint 9s linear infinite; }
+.water i:nth-child(1) { bottom: 46%; animation-delay: 0s; }
+.water i:nth-child(2) { bottom: 30%; animation-delay: -3.1s; animation-duration: 11s; }
+.water i:nth-child(3) { bottom: 16%; animation-delay: -6.2s; animation-duration: 8s; }
+@keyframes glint { 0% { transform: translate3d(-20vw, 0, 0); opacity: 0; } 18% { opacity: .85; } 70% { opacity: .55; } 100% { transform: translate3d(108vw, 0, 0); opacity: 0; } }
+
+.hero-canvas { filter: opacity(.34); }   /* the spectrogram stays as faint sound over the marsh */
+.hero-in { z-index: 6; }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: clamp(34px, 5vw, 64px); z-index: 7; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0 30C120 8 240 8 360 26S600 46 720 28 960 6 1080 22 1320 42 1440 20V60H0Z' fill='%23F7F9FD'/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat; }
+
+/* ---------- Flying birds ---------- */
+.flock { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 2; }
+.bird { position: absolute; left: 0; top: var(--y, 20%); width: var(--s, 28px); aspect-ratio: 2 / 1; opacity: var(--o, .7); color: var(--bird); will-change: transform; animation: fly var(--dur, 60s) linear var(--del, 0s) infinite; }
+.bird.back { animation-name: flyBack; }
+.bird .bob { display: block; width: 100%; height: 100%; animation: bob 3.4s ease-in-out var(--fd, 0s) infinite alternate; }
+.bird.back .bob { transform: scaleX(-1); }
+.bird svg { display: block; width: 100%; height: 100%; overflow: visible; fill: currentColor; }
+.bird .wl { transform-origin: 30px 15px; animation: flapL var(--fp, .62s) ease-in-out var(--fd, 0s) infinite alternate; }
+.bird .wr { transform-origin: 30px 15px; animation: flapR var(--fp, .62s) ease-in-out var(--fd, 0s) infinite alternate; }
+.vee { position: absolute; left: 0; top: var(--y, 20%); width: 0; height: 0; animation: fly var(--dur, 90s) linear var(--del, 0s) infinite; will-change: transform; }
+.vee .bird { animation: none; left: var(--vx); top: var(--vy); }
+@keyframes fly { from { transform: translate3d(-14vw, 0, 0); } to { transform: translate3d(112vw, var(--dy, -30px), 0); } }
+@keyframes flyBack { from { transform: translate3d(112vw, 0, 0); } to { transform: translate3d(-14vw, var(--dy, -30px), 0); } }
+@keyframes bob { from { transform: translate3d(0, -5px, 0); } to { transform: translate3d(0, 6px, 0); } }
+@keyframes flapL { from { transform: rotate(-26deg); } to { transform: rotate(30deg) scaleY(.82); } }
+@keyframes flapR { from { transform: rotate(26deg); } to { transform: rotate(-30deg) scaleY(.82); } }
+.problem { overflow: hidden; }
+.problem .flock { z-index: 0; }
+.problem .wrap { position: relative; z-index: 1; }
+
+/* ---------- Birds of marsh and lake ---------- */
+.birds { padding: clamp(80px, 11vw, 160px) 0 clamp(80px, 11vw, 160px); background: linear-gradient(180deg, var(--bg), #EEF4FF 55%, var(--bg)); }
+.bird-grid { display: grid; grid-template-columns: 7fr 5fr; grid-template-rows: 2fr 1fr; gap: clamp(12px, 1.6vw, 22px); }
+.bird-card { position: relative; margin: 0; overflow: hidden; border-radius: 28px; background: #DCE6F8; isolation: isolate; box-shadow: 0 24px 50px -28px rgba(11, 27, 58, .45); }
+.bc-a { grid-row: 1 / span 2; aspect-ratio: 3 / 2; }
+.bird-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.1); transition: transform 1.8s var(--ease-out); }
+.bird-card.in img { transform: scale(1); }
+.bird-card::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8, 22, 52, 0) 52%, rgba(8, 22, 52, .62) 100%); pointer-events: none; }
+.bird-card figcaption { position: absolute; z-index: 2; left: clamp(16px, 2vw, 28px); right: clamp(16px, 2vw, 28px); bottom: clamp(14px, 1.8vw, 24px); display: grid; gap: 4px; color: #fff; }
+.bird-card figcaption b { font-size: clamp(1.15rem, 1.9vw, 1.7rem); letter-spacing: -.02em; line-height: 1.1; }
+.bird-card figcaption em { font: 500 .74rem/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; opacity: .86; font-style: normal; }
+.bird-card figcaption .where { font-size: .9rem; opacity: .9; }
+.bird-card .credit { position: absolute; z-index: 2; right: 12px; top: 10px; font: 400 .66rem/1 var(--mono); color: rgba(255, 255, 255, .86); background: rgba(8, 22, 52, .38); padding: 5px 9px; border-radius: 999px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); text-decoration: none; }
+@media (hover: hover) and (pointer: fine) {
+  .bird-card.in:hover img { transform: scale(1.035); transition-duration: .9s; }
+}
+
+/* ---------- The call to join: a card with the dawn over Korgalzhyn ---------- */
+.join { padding: clamp(72px, 10vw, 140px) 0; }
+.join-card { position: relative; isolation: isolate; overflow: hidden; border-radius: clamp(24px, 3vw, 40px); padding: clamp(40px, 7vw, 110px) clamp(24px, 6vw, 96px); color: #fff; background: #08142C; min-height: clamp(380px, 52vw, 620px); display: flex; align-items: center; box-shadow: 0 40px 80px -40px rgba(8, 20, 44, .65); }
+.join-bg { position: absolute; top: 0; bottom: 0; left: 30%; z-index: -2; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); transition: transform 2.6s var(--ease-out);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24%); mask-image: linear-gradient(90deg, transparent 0, #000 24%); }
+.join-card.in .join-bg { transform: scale(1); }
+.join-card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(6, 16, 40, .9) 0%, rgba(6, 16, 40, .68) 42%, rgba(6, 16, 40, .12) 78%, rgba(6, 16, 40, 0) 100%); }
+.join-card::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: clamp(70px, 14vw, 180px); z-index: 0; background: url(../img/reeds-near.svg) repeat-x left bottom / auto 100%; opacity: .92; pointer-events: none; }
+.join-in { position: relative; z-index: 1; max-width: 640px; }
+.join .join-card h2 { color: #fff; font-size: clamp(2.2rem, 6vw, 5rem); }
+.join .join-card .lead { color: rgba(255, 255, 255, .86); }
+.join .join-card .credit { position: absolute; right: 16px; top: 14px; z-index: 2; font: 400 .66rem/1 var(--mono); color: rgba(255, 255, 255, .8); background: rgba(6, 16, 40, .4); padding: 5px 9px; border-radius: 999px; text-decoration: none; }
+
+/* ---------- Footer shore ---------- */
+.foot { position: relative; }
+.foot::before { content: ""; position: absolute; left: 0; right: 0; top: -42px; height: 42px; background: url(../img/reeds-far.svg) repeat-x left bottom / auto 100%; opacity: .55; pointer-events: none; }
+.foot-links { flex-wrap: wrap; row-gap: 8px; }
+.foot-credit { flex-basis: 100%; font-size: .78rem; color: var(--soft); line-height: 1.5; }
+.foot-credit a { text-decoration: underline; text-underline-offset: 2px; }
+
+@media (max-width: 860px) {
+  .bird-grid { grid-template-columns: 1fr; grid-template-rows: none; }
+  .bc-a { grid-row: auto; }
+  .bird-card:not(.bc-a) { aspect-ratio: 16 / 10; }
+  .bird-card.bc-c { aspect-ratio: 16 / 8; }
+  .join-card::before { background: linear-gradient(180deg, rgba(6, 16, 40, .86) 0%, rgba(6, 16, 40, .6) 60%, rgba(6, 16, 40, .25) 100%); }
+  .join-bg { left: 0; -webkit-mask-image: none; mask-image: none; object-position: 62% 50%; }
+  .reeds-near { height: clamp(150px, 24dvh, 260px); }
+}
+
+/* ---------- Reduced motion: still scene, gentle fades only ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .sun { animation: none; opacity: .95; }
+  .reeds i, .water i, .bird, .bird .bob, .bird .wl, .bird .wr, .vee { animation: none; }
+  .bird { left: var(--x, 50%); }
+  .vee { left: var(--x, 50%); }
+  .water i { opacity: .5; }
+  .bird-card img, .join-bg { transform: none; transition: none; }
+}
