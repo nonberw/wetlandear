@@ -18,12 +18,22 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="css/style.css?v=20261009">
 <link rel="stylesheet" href="css/nature.css?v=20261014">
+<link rel="stylesheet" href="css/ds.css?v=20261030">
+<link rel="preload" href="fonts/bricolage-grotesque-200-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/video/hero-poster.webp" as="image">
 <script src="js/boot.js?v=20261009"></script>
 <noscript><style>.i18n-pending body{opacity:1!important}.reveal{opacity:1!important;transform:none!important}.hero-h1 .line>span{transform:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 <div class="progress" aria-hidden="true"><i id="progBar"></i></div>
+<div class="intro" id="intro" hidden>
+  <div class="intro-ed">
+    <div class="ed-bar"><i></i><i></i><i></i><span>station-01 · listen.log</span><em>demo</em></div>
+    <ol class="intro-lines" id="introLines" aria-hidden="true"></ol>
+    <p class="intro-hint"><span id="introState">listening</span><button type="button" class="intro-skip" id="introSkip" data-i18n="intro_skip">Enter</button></p>
+  </div>
+</div>
 
 <header class="nav" id="nav">
   <div class="nav-in">
@@ -52,29 +62,35 @@
 
 <main id="main">
 
-  <section class="hero" id="top">
-    <div class="aura" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="scene" aria-hidden="true">
-      <div class="sun"></div>
-      <div class="flock" id="flock"></div>
-      <div class="water"><i></i><i></i><i></i></div>
-      <div class="reeds reeds-far" data-depth=".25"><i></i></div>
-      <div class="reeds reeds-mid" data-depth=".5"><i></i></div>
-      <div class="reeds reeds-near" data-depth=".9"><i></i></div>
-    </div>
-    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
-    <div class="hero-in">
-      <h1 class="hero-h1">
-        <span class="line"><span data-i18n="hero_h1_a">Hear every</span></span>
-        <span class="line"><span data-i18n="hero_h1_b">reserve.</span></span>
-      </h1>
-      <p class="hero-sub" data-i18n="hero_sub">An open acoustic monitoring system. Solar stations listen to birds, rangers see everything on one map.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary btn-lg mag" href="#join" data-i18n="cta">Join the pilot</a>
-        <a class="btn btn-ghost btn-lg" href="#how" data-i18n="hero_cta2">How it works</a>
+  <section class="hero hero-v" id="top">
+    <div class="hv">
+      <video class="hv-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="img/video/hero-poster.webp" aria-hidden="true"><source src="img/video/hero-sm.mp4" type="video/mp4" media="(max-width: 760px)"><source src="img/video/hero.mp4" type="video/mp4"></video>
+      <div class="aura" aria-hidden="true"><i></i><i></i><i></i></div>
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hv-noise" aria-hidden="true"></div>
+      <div class="hv-shade" aria-hidden="true"></div>
+      <a class="live hv-live" href="#pilot"><span class="dot" aria-hidden="true"></span><span data-i18n="hv_live">Pilot site: Korgalzhyn</span></a>
+      <button type="button" class="vid-btn hv-btn" id="heroVideoBtn" aria-pressed="false" aria-label="Pause the background video"><i></i></button>
+      <div class="hv-content">
+        <h1 class="hv-name"><span class="hv-word" data-pull>WetlandEar</span><span class="hv-ast" aria-hidden="true">*</span><span class="sr"> <span data-i18n="hero_h1_a">Hear every</span> <span data-i18n="hero_h1_b">reserve.</span></span></h1>
+        <div class="hv-side">
+          <p class="hv-text" data-i18n="hero_sub">An open acoustic monitoring system. Solar stations listen to birds, rangers see everything on one map.</p>
+          <div class="hv-actions">
+            <a class="pill-cta" href="#join"><span data-i18n="cta">Join the pilot</span><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            <a class="hv-link" href="#how" data-i18n="hero_cta2">How it works</a>
+          </div>
+          <p class="hv-note" aria-hidden="true">* <span data-i18n="hero_h1_a">Hear every</span> <span data-i18n="hero_h1_b">reserve.</span></p>
+        </div>
       </div>
     </div>
   </section>
+
+  <div class="marquee" aria-label="Some of the species the model knows">
+    <div class="mq-track">
+      <ul class="mq-set"><li>Grus grus</li><li>Phoenicopterus roseus</li><li>Pelecanus crispus</li><li>Anthropoides virgo</li><li>Cygnus cygnus</li><li>Anser anser</li><li>Vanellus vanellus</li><li>Acrocephalus arundinaceus</li><li>Alauda arvensis</li><li>Fulica atra</li><li>Larus ichthyaetus</li><li>Botaurus stellaris</li></ul>
+      <ul class="mq-set" aria-hidden="true"><li>Grus grus</li><li>Phoenicopterus roseus</li><li>Pelecanus crispus</li><li>Anthropoides virgo</li><li>Cygnus cygnus</li><li>Anser anser</li><li>Vanellus vanellus</li><li>Acrocephalus arundinaceus</li><li>Alauda arvensis</li><li>Fulica atra</li><li>Larus ichthyaetus</li><li>Botaurus stellaris</li></ul>
+    </div>
+  </div>
 
   <section class="problem" id="problem">
     <div class="flock" data-birds="6" data-band="3,40" aria-hidden="true"></div>
@@ -449,5 +465,6 @@
 <script src="js/demo.js?v=20261009"></script>
 <script src="js/main.js?v=20261009"></script>
 <script src="js/nature.js?v=20261014"></script>
+<script src="js/ds.js?v=20261030"></script>
 </body>
 </html>
